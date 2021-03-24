@@ -1,0 +1,238 @@
+/* nejsme vcerejsi, pouzivame moderni a intuitivni box model */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	text-rendering: optimizeLegibility;
+}
+
+/*
+ BARVY
+ svetle sede pozadi      #f5f5f5
+ tmavsi seda             #959595
+ barevny prechod nahore  #06d7c1
+ barevny prechod dole    #50cc49
+ zelena cara             #06d7c1
+ oranzova                #f15f42
+
+ POUZITE PISMO
+ Rubik - rezy pisma regular 400 a medium 500
+ https://fonts.google.com/specimen/Rubik
+*/
+
+
+/* ----- zde zacni psat vlastni css ----- */
+
+body {
+	background-color: #f5f5f5;
+	/* nastavíme písmo celé stránce, takže ho zdědí všechny vnořené elementy */
+	font-family: "Rubik", sans-serif;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.zbozi {
+	/* pevně daná velikost celého boxu */
+	width: 670px;
+	height: 440px;
+
+	/* celbox bude horizontálně uprostřed stránky a odsunutý o 100px od horního (a dolního) okraje okna */
+	margin: 100px auto;
+
+	/* celý box je flexbox - tj. dvě vnitřní poloviny budou vedle sebe */
+	display: flex;
+
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* levá (zelená) polovina */
+.vizual {
+	/* nastavíme position: relative, abychom mohli uvnitř zelené poloviny pozicovat absolutně*/
+	position: relative;
+
+	/* potomek flexboxu, nastavíme šířku v rámci flexboxu na 50%, která se nebude smrskávat ani natahovat */
+	flex: 0 0 50%;
+
+	/* vše uvnitř je odsazené o 30 px od okrajů zelené poloviny */
+	padding: 30px;
+
+	/* barevný přechod ze světle zelené do trochu tmavší */
+	background-image: linear-gradient(to bottom, #06d7c1, #50cc49);
+
+	/* nastavíme kulaté rohy vlevo nahoře a dole */
+	border-radius: 10px 0 0 10px;
+}
+
+/* pravá polovina */
+.detaily {
+	/* opět kvůli absolutnímu pozicování věcí uvnitř */
+	position: relative;
+
+	/* potomek flexboxu - stejně jako zelená polovina, zabírá polovinu */
+	flex: 0 0 50%;
+
+	/* odsazení obsahu od okrajů */
+	padding: 30px;
+}
+
+
+/* === OBSAH LEVÉ POLOVINY S FOTKOU PRODUKTU === */
+
+.slogan {
+	/* odsazení sloganu od loga pomocí marginu */
+	margin-top: 30px;
+
+	font-size: 16px;
+	font-weight: 500;
+	color: white;
+}
+
+.bota {
+	/* bota trčí ven mimo box, takže ji musíme napozicovat absolutně. vlastnosti nastavíme tak, že levý dolní roh obrázku boty je 80px doleva mimo box, dolní hrana obrázku je na úrovní dolní hrany celého boxu */
+	position: absolute;
+	left: -80px;
+	bottom: 0;
+}
+
+.cenovka {
+	/* cenovku chceme v pravém dolním rohu zelené poloviny, ale ne úplně v rohu, ale se stejným odstupem od okraje, jako mají ostatní prvky (30px), takže nastavíme pravý dolní roh cenovky 30px od pravého okraje, 30px od dolního okraje */
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+
+	text-align: right;
+	color: white;
+}
+
+.cena {
+	font-size: 28px;
+	font-weight: 500;
+}
+
+.zaruka {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+
+/* === PRAVÁ POLOVINA S POPISEM PRODUKTU === */
+
+.nazev {
+	/* název je prvek <h1> a ten má standardně nastavený nějaký margin, my ho vynulujeme, aby byl nadpis přesně v tom místě, kde ho chceme - odsazení nadpisu od okraje boxu bde určené paddingem boxu, ne marginem nadpisu */
+	margin-top: 0;
+	margin-bottom: 10px;
+
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1;
+
+	/* text transformujeme na velká písmena */
+	text-transform: uppercase;
+}
+
+.produkt {
+	line-height: 1;
+	color: #959595;
+}
+
+.popis {
+	/* odstup popisu od názvu */
+	margin-top: 30px;
+
+	/* dole pod popisem chceme mezeru, pak zelenou čáru a pak opět mezeru.
+	čáru uděláme pomocí border-bottom, mezeru nad čárou paddingem ze spodu boxu, odzanení od dalšího prvku pod čárou pomocí dolního marginu boxu */
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #06d7c1;
+
+	line-height: 1.4;
+}
+
+.parametr {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.velikosti {
+	/* vynulujeme výchozí odsazení odrážkového seznamu */
+	margin: 0;
+	padding: 0;
+
+	/* odstraníme odrážky z odrážkového seznamu */
+	list-style: none;
+
+	/* a uděláme z něho flexbox - tj. velikosti bot budou vedle sebe */
+	display: flex;
+
+	/* zarovnáme položky flexboxu na jejich vertikální střed */
+	align-items: center;
+}
+
+.velikosti li {
+	/* vynulujeme standardně nastavená odsazení odrážek v seznamu.
+	Pouze chceme, aby vpravo od položky byla mezera 10px, aby byly velikosti bot od sebe mírně odsazené */
+	margin: 0 10px 0 0;
+	padding: 0;
+
+	/* nastavíme velikosti položky seznamu na pevné hodnoty, šířka a výška jsou stejné, abychom mohli pomocí border-radius udělat kolem položky kolečko */
+	width: 30px;
+	height: 30px;
+
+	/* nastavíme výšku řádku na stejnou hodnotu, jako je výška položky seznamu, což znamená, že text je vertikálně uprostřed řádku, tj. i uprostřed kolečka, když bude položka vybraná */
+	line-height: 30px;
+
+	/* vycentrujeme i horizontálně */
+	text-align: center;
+
+	/* orámování je sice průhlednout (transparent) barvou, ale už existuje, takže při najetí myši změníme jen jeho barvu. Kdybychom při najetí myši přidávali celý okraj, číslo uvnitř by nám poskakovalo nebo by se měnila velikost prvku o přidaný okraj */
+	border: 1px solid transparent;
+
+	/* rámeček ve tvaru kolečka */
+	border-radius: 50%;
+
+	/* kursor nad prvkem má tvar ruky s namířeným ukazováčkem */
+	cursor: pointer;
+}
+
+.velikosti li:hover,
+.velikosti li:active,
+.velikosti li:focus,
+.velikosti li.vybrana {
+	/* barva textu a rámečku pro vybranou velikost bot (nebo tu, nad kterou je myš) */
+	font-weight: 500;
+	color: #f15f42;
+	border: 1px solid #f15f42;
+}
+
+.akce {
+	/* box, který obsahuje tlačítko koupit, umístíme absolutně do levého dolního rohu bíle poloviny. */
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+}
+
+.tlacitko {
+	/* vzhled tlačítka */
+	display: inline-block;
+	padding: 18px 30px 14px 30px;
+	line-height: 1;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+	background-color: #f15f42;
+	color: white;
+	border-radius: 6px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.tlacitko:hover,
+.tlacitko:active,
+.tlacitko:focus {
+	/* změna barvy pozadí při najetí myší nad tlačítko */
+	background-color: #d54c31;
+}

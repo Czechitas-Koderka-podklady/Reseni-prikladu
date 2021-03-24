@@ -1,0 +1,182 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+html { box-sizing: border-box; }
+*, :after, :before { box-sizing: inherit; }
+
+/*
+	BARVY
+	czechitas  #b92e81
+	pozadi     #bdc3c7
+	tmava      #31363b
+	delitka    #3f464d
+	portfolio  #e74c3c
+	facebook   #3b5998
+	twitter    #1da1f2
+*/
+
+
+body {
+	background-color: #bdc3c7;
+}
+
+.profil {
+	margin: 50px;
+	/*
+		Jediné místo, kde nastavím skutečnou šířku profilu.
+		Všude jinde budu používat hodnoty v procentech relativní
+		k této šířce. Když se rozhodnu že chci mít celý profil
+		jinak široký, stačí mi to změnit jen zde na jednom místě.
+	*/
+	width: 250px;
+
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	background-color: #31363b;
+	color: #bdc3c7;
+
+	/*
+		Stín pod profilem. Hodnoty znamenají:
+		- stín se oproti profilu vysune o 0px doprava a o 3px dolů
+		- rozmazání stínu 8px
+		- stín je barvou RBG 0,0,0 (tj. černá), která je 50% průhledná (=0.5)
+	*/
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hlavicka {
+	/*
+		hlavička má position: relative, abychom uvnitř ní mohli
+		absolutně pozicovat ikonku loga Czechitas
+	*/
+	position: relative;
+}
+
+.foto {
+	/* přepnutím na display: block odstraníme "mezeru pod obrázkem" */
+	display: block;
+
+	/* nastavíme šířku 100%, obrázek se bude přizpůsobovat šířce rodiče, zde celého profilu */
+	width: 100%;
+	height: auto;
+}
+
+.logo {
+	/*
+		Logo je absolutně pozicované ke svému rodiči, tj. hlavičce profilu.
+		Používáme right a bottom, takže ho umisťujeme vzhledem k pravému
+		dolnímu rohu hlavičky. Logo má nastavenou šířku a výšku 50px,
+		takže umístění bottom: -25px; znamená, že logo bude přesně polovinou
+		trčet pod dolní okraj hlavičky.
+	*/
+	position: absolute;
+	right: 25px;
+	bottom: -25px;
+	width: 50px;
+	height: 50px;
+
+	/* obrázek loga je průhledný, tak mu přidáme barevné pozadí */
+	background-color: #b92e81;
+
+	/* uděláme z loga kolečko se stínem */
+	border-radius: 50%;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.obsah {
+	/* text uvnitř obsahu je odsazený od okraje */
+	padding: 30px 20px 20px 20px;
+}
+
+.jmeno {
+	/*
+		Jméno je nadpis H1, takže selektor by mohl být h1,
+		ale raději vše stylujeme přes CSS třídy.
+	*/
+
+	margin: 0 0 20px 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	font-weight: normal;
+	color: #fff;
+}
+
+.odkazy {
+	/*
+		Vynulujeme výchozí margin a padding, který má
+		seznam <ul> od prohlížeče.
+	*/
+	margin: 0;
+	padding: 0;
+	/* a vypneme odrážky */
+	list-style: none;
+}
+
+.odkazy li {
+	/*
+		z položek seznamu uděláme inline-blocky, takže
+		se budou na stránce skládat vedle sebe
+	*/
+	display: inline-block;
+}
+
+.portfolio {
+	/*
+		tlačítko Portfolio zabírá samo celý řádek, takže ostatní
+		dvě tlačítka se zalomí a budou na řádku pod tím
+	*/
+	width: 100%;
+
+	/* přidáme čáry kolem tlačítka jen na stranách, kde je chceme */
+	border-top: 1px solid #3f464d;
+	border-bottom: 1px solid #3f464d;
+}
+
+.facebook {
+	/* šířka 50%, tj. tato dvě tlačítka se vejdou vedle sebe */
+	width: 50%;
+	border-right: 1px solid #3f464d;
+}
+
+.twitter {
+	/* šířka 50%, tj. tato dvě tlačítka se vejdou vedle sebe */
+	width: 50%;
+}
+
+.odkazy a {
+	/*
+		všechny odkazy (tlačítka) nastavíme na block, tj. roztáhnou
+		se na maximální šířku svého rodiče, kterou jsme nastavovali
+		položkám seznamu o kousek výše (100%, 50%, 50%)
+	*/
+	display: block;
+
+	/* text uvnitř tlačítka není nalepený na okraj */
+	padding: 10px;
+
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+
+	/* vypneme standardní podtržení odkazu */
+	text-decoration: none;
+
+	/* text uvnitř převedeme na velká písmena */
+	text-transform: uppercase;
+
+	/* barva textu je světle šedá barva */
+	color: #bdc3c7;
+}
+
+/* při najetí na odkaz se barva textu změní na jasnější bílou*/
+.odkazy a:hover {
+	color: #fff;
+}
+
+/* při najetí na konkrétní tlačítka se změní i barva pozadí */
+.portfolio a:hover {
+	background-color: #e74c3c;
+}
+.facebook a:hover {
+	background-color: #3b5998;
+}
+.twitter a:hover {
+	background-color: #1da1f2;
+}

@@ -1,0 +1,19 @@
+/* nejsme vcerejsi, pouzivame moderni a intuitivni box model */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+
+.box {
+	width: 800px;
+	height: 500px;
+	margin: 100px auto;
+	border: 1px dashed grey;
+}
+
+/* ------------------------------------ */
+
+
+
+.box {
+	background-image:	linear-gradient(to right, red, #ff8832 20%, yellow 80%, blue)
+}

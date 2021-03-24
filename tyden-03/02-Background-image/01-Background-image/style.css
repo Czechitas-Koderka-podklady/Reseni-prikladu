@@ -1,0 +1,27 @@
+/* nejsme vcerejsi, pouzivame moderni a intuitivni box model */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+
+.box {
+	width: 80%;
+	height: 500px;
+	margin: 100px auto;
+	border: 5px dashed black;
+}
+
+/* ------------------------------------ */
+
+
+.box {
+	background-color: red;
+	background-image: url(images/siroke.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	/* nebo nastavíme všechno najednou zkrácenou vlastností background */
+	/*
+	background: red url(images/vysoke.jpg) no-repeat center/cover;
+	*/
+}
