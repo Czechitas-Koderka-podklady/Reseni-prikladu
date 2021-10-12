@@ -13,7 +13,7 @@ body {
 .box {
 	width: 600px;
 	margin: 100px auto;
-	padding: 50px;
+	padding: 30px;
 	border: 5px solid black;
 	background-color: lightskyblue;
 }

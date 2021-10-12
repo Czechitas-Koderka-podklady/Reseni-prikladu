@@ -22,6 +22,6 @@ html { box-sizing: border-box; }
 
 	/* nebo nastavíme všechno najednou zkrácenou vlastností background */
 	/*
-	background: blue url(images/vysoke.jpg) no-repeat center/cover;
+	background: red url(images/vysoke.jpg) no-repeat center/cover;
 	*/
 }
