@@ -1,0 +1,277 @@
+/* nejsme včerejší, používáme moderní box model */
+*, :after, :before { box-sizing: border-box; }
+
+/*
+	BARVY
+	šedé pozadí      #e5e5e5
+	světle fialová   #48418e
+	tmavě fialová    #25133d
+
+	POUŽITÉ PÍSMO
+	Source Sans Pro - řezy písma light 300, regular 400 a bold 700
+	https://fonts.google.com/specimen/Roboto
+*/
+
+
+/* ----- zde zacni psat vlastni css ----- */
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #e5e5e5;
+
+	/*
+		Písmo nastavené pro celou stránku, takže ho zdědí všechny elementy,
+		které nemají nastaveno jinak.
+	*/
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.obal {
+	/* celý obsah stránky je uzavřený v pruhu širokém 960px */
+	width: 960px;
+
+	/*
+		Pruh je horizontálně vycentrovaný v okně prohlížeče pomocí nastavení
+		levého a pravého marginu na hodnotu auto.
+	*/
+	margin: 0 auto;
+
+	background: white;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* ----- menu ----- */
+.menu {
+	/* vynulujeme výchozí odsazení odrážkového seznamu */
+	margin: 0;
+	padding: 0;
+
+	/* ze seznamu uděláme flexbox, aby položky menu byly vedle sebe */
+	display: flex;
+
+	/* odstraníme odrážky z odrážkového seznamu */
+	list-style: none;
+
+	background-color: white;
+}
+
+.menu li {
+	/* vynulujeme výchozí odsazení */
+	margin: 0;
+	padding: 0;
+}
+
+.menu a {
+	/*
+		Z odkazu uděláme block, bychom mohli nastavit horní a dolní padding
+		uvnitř tlačítka. Odkaz <a> je standardně prvek typu inline (řádkový)
+		a těm to nastavit nejde.
+	*/
+	display: block;
+
+	/* odsazení textu uvnitř tlačítka menu */
+	padding: 1em 2em;
+
+	color: #25133d;
+	text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus,
+.menu a:active {
+	/* změna barvy pozadí a textu tlačítka při najetí myši */
+	background-color: #48418e;
+	color: white;
+}
+
+.menu .logo {
+	/*
+		První položka v menu je logo, které není obalené prvkem <a>,
+		takže mu dáme stejné odsazení, jako mají odkazy v menu,
+		aby logo vypadalo konzinstentně jako zbytek menu
+	*/
+	padding: 1em 2em;
+
+	font-weight: 700;
+	color: #25133d;
+}
+
+/* ----- banner ----- */
+.banner {
+	/*
+		banneru nastavíme position:relative; abychom uvnitř něj mohli
+		napozicovat absolutně obrázek ruky s telefonem
+		*/
+	position: relative;
+
+	/*
+		nastavíme minimální výšku - tj. hlavička bude mít tuto výšku,
+		ale pokud by obsah uvnitř byl náhodou vyšší, tak z hlavičky nevyteče ven,
+		ale hlavička se roztáhne
+	*/
+	min-height: 450px;
+
+	/*text uvnitř hlavičky je odsazený 60px od horního/dolního okraje a 40px od levého/pravého */
+	padding: 60px 40px;
+
+	color: white;
+
+	/* na pozadí hlavičky je obrázek s barevným flekem */
+	background: #2c3e50 url('images/pozadi.jpg') center center no-repeat;
+
+	/*
+		pozadí se roztáhne tak, aby vždy pokrylo celou plochu hlavičky
+		a přitom se nedeformoval poměr stran zdrojového obrázku
+	*/
+	background-size: cover;
+}
+
+.titulek {
+	/*
+		vynulujeme výchozí odsazení nadpisu <h1>, nadpis je velkým písmem,
+		takže i toto odsazení zhora/zdola by bylo obrovské
+	*/
+	margin: 0;
+
+	font-size: 90px;
+	font-weight: 400;
+
+	/*
+		nastavíme výšku řádku na 1, tj. řádek je vysoký jen jako samotná písmena,
+		není zde žádná mezera mezi řádky textu
+	*/
+	line-height: 1;
+
+	color: white;
+}
+
+.podtitulek {
+	/* podtitulek je odsazený o 50px od nadpisu nad ním i 50px od tlačítek pod ním */
+	margin: 50px 0;
+
+	font-size: 36px;
+	font-weight: 300;
+
+	/*
+		podtitulek může být víceřádkový, tak nastavíme mírný rozestup mezi řádky,
+		aby se text dobře četl
+	*/
+	line-height: 1.2;
+}
+
+.tlacitko {
+	/*
+		tlačítka v HTML mají na sobě dvě třídy - zde jsou vlastnosti společné pro
+		oba typy tlačítka, v dalších třídách (.tlacitko-stahnout, .tlacitko-info)
+		jsou vlastnosti specifické pro konkrétní typ tlačítka
+	*/
+
+	/*
+		tlačítko nastavíme na inline-block, takže tlačítka se budou dávat vedle sebe.
+		Mohli bychom na rodičovský prvek nastavit display:flex a dosáhnout stejného efektu,
+		ale tady flex nutně nepotřebujeme
+	*/
+	display: inline-block;
+
+	/* text uvnitř tlačítka odsazený od okraje */
+	padding: 1em 1.5em;
+
+	font-size: 20px;
+	line-height: 1;
+	color: white;
+
+	/*
+		text v odkazu je standardně podtržený, což uvnitř tlačítka nechceme,
+		takže podtržení vypneme
+	*/
+	text-decoration: none;
+
+	border: 1px solid white;
+	border-radius: 8px;
+}
+
+.tlacitko-stahnout {
+	/*
+		hlavní tlačítko "Stáhnout zdarma" - má fialovou barvu pozadí
+		a vpravo od něj je odstup (margin) od dalšího tlačítka
+	*/
+	margin-right: 20px;
+	background-color: #48418e;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tlacitko-info {
+	/*
+		tlačítko "Více informací" nemá barvu pozadí takže bude průhledné
+		a jen s obrysem nastaveným v .tlacitko, ale je tenkým písmem
+		(300 = "Thin" varianta fontu)
+	*/
+	font-weight: 300;
+}
+
+.telefon {
+	/* obrázek ruky s telefonem umístíme absolutně do pravého dolního rohu hlavičky */
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+/* ----- obsah ----- */
+
+.obsah {
+	/* odsazení obsahu od okrajů uvnitř hlavního obsahového bloku stránky */
+	padding: 40px;
+}
+
+.vlastnosti {
+	/* chceme 3 sloupce vedle sebe, takže z rodiče uděláme flexbox */
+	display: flex;
+
+	/*
+		sloupce budou mít nějakou nastavenou šířku (dohromady méně než 100%)
+		a my je pomocí space-between odsadíme od sebe, aby mezi nimi byly
+		pravidelné mezery
+	*/
+	justify-content: space-between;
+}
+
+.sloupec {
+	/* sloupec uvnitř flexboxu je nastavený na 30% šířku */
+	flex: 0 0 30%;
+
+	text-align: center;
+}
+
+h2 {
+	/* nadpis ve sloupci */
+	margin: 10px 0;
+	font-size: 20px;
+	font-weight: 700;
+	color: #48418e;
+}
+
+.ikona {
+	/*
+		upravíme velikost ikonz ve sloupci, výška se přizpůsobí automaticky
+		podle šířky, aby byl zachován poměr stran zdrojového obrázku
+	*/
+	width: 70px;
+	height: auto;
+}
+
+/* ----- patička ----- */
+
+.paticka {
+	padding: 10px 40px;
+	font-size: 14px;
+	font-weight: 300;
+	background-color: #48418e;
+	color: white;
+	text-align: center;
+}

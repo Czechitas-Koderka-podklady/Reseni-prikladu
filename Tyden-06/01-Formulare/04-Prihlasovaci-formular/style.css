@@ -1,0 +1,74 @@
+/* intuitivnejsi box siying */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	margin: 20px;
+	font: 16px/1.5 sans-serif ;
+	background-color: #e5e5e5;
+}
+
+/* ------------------------- */
+
+/*
+BARVY:
+červená	na hlavičku		#e74c3c
+zelená na tlačítko		#2ecc71
+*/
+
+.login-form {
+	width: 300px;
+	margin: 100px auto;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+	margin: 0;
+	padding: 10px 20px;
+	font-size: 24px;
+	font-weight: normal;
+	color: white;
+	background-color: #e74c3c;
+	border-radius: 10px 10px 0 0;
+}
+
+.form-content {
+	padding: 20px;
+}
+
+.form-field {
+	margin-bottom: 10px;
+}
+
+.form-field label {
+	display: block;
+	font-size: 14px;
+	color: gray;
+}
+
+.form-field input {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid silver;
+	border-radius: 4px;
+}
+
+.button {
+	width: 100%;
+	padding: 10px 20px;
+	font-size: 16px;
+	text-align: center;
+	color: white;
+	background-color: #2ecc71;
+	border: 0;
+	border-radius: 4px;
+}
+
+.lost {
+	margin: 10px 0 0 0;
+	font-size: 13px;
+	text-align: center;
+}

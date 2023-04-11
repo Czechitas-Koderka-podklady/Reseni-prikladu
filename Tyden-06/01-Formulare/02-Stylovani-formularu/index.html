@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Stylování formulářů</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<h1>Stylování formulářů</h1>
+
+	<form action="https://formular.itgirls.cz" method="post">
+
+
+	<!-- Label a pole pod sebou -->
+
+		<p>Lorem ipsum dolor sit amet.</p>
+
+	<div class="form-field">
+		<label for="jmeno">Jméno</label>
+		<input type="text" name="jmeno" id="jmeno" placeholder=" ">
+	</div>
+
+
+	<div class="form-field">
+		<label for="prijmeni">Příjmení <span class="required">*</span></label>
+		<input type="text" name="prijmeni" id="prijmeni"  placeholder=" " required>
+	</div>
+
+
+	<div class="form-field">
+		<label for="email">E-mail</label>
+		<input type="email" name="email" id="email"  placeholder=" ">
+	</div>
+
+	<div class="form-field">
+		<label for="vek">Věk</label>
+		<input type="number" name="vek" id="vek" placeholder=" ">
+	</div>
+
+	<div class="form-field">
+		<label for="adresa">Adresa</label>
+		<textarea name="adresa" id="adresa" rows="5" placeholder=" "></textarea>
+	</div>
+
+
+	<div class="form-checkbox">
+		<input type="checkbox" name="souhlas" id="souhlas" value="ano">
+		<label for="souhlas">Souhlasím s podmínkami</label>
+	</div>
+
+
+	<div class="form-field">
+
+		<label>Oblíbené ovoce</label>
+
+		<div class="form-radio">
+			<input type="radio" name="ovoce" id="ovoce1" value="jablko">
+			<label for="ovoce1">Jablko</label>
+		</div>
+
+		<div class="form-radio">
+			<input type="radio" name="ovoce" id="ovoce2" value="hruska">
+			<label for="ovoce2">Hruška</label>
+		</div>
+
+		<div class="form-radio">
+			<input type="radio" name="ovoce" id="ovoce3" value="meloun">
+			<label for="ovoce3">Meloun</label>
+		</div>
+
+	</div>
+
+
+
+	<div class="form-field">
+		<label for="mesto">Město</label>
+		<select name="mesto" id="mesto">
+			<option value="praha">Praha, hlavní město</option>
+			<option value="brno">Brno, hlavní vesnice</option>
+			<option value="ostrava">Ostrava ... meh</option>
+		</select>
+
+	</div>
+
+
+
+
+	<!-- Label a pole vedle sebe -->
+
+	<!-- <div class="form-horizontal">
+		<label for="prezdivka">Přezdívka</label>
+		<input type="text" name="prezdivka" id="prezdivka">
+	</div>
+
+	<div class="form-horizontal">
+		<label for="vek">Věk</label>
+		<input type="number" name="vek" id="vek">
+	</div>
+ -->
+
+	<!--
+		Stylování textového pole <input> nebo <textarea> a tlačítek <button>
+		- margin, padding, border, barvy, písmo
+		- stylovatelný bez problémů
+		- pozor v CSS - nemůžeme stylovat jen "input"
+	-->
+
+
+
+	<!--
+		Stylování checkbox nebo radio
+		- v podstatě nemožné stylovat
+		- lze vyrobit "falešný" checkbox/radio pomocí speciálních CSS triků - ukážeme si později
+	-->
+
+
+	<!--
+		Stylování <select>
+		- lze stylovat částečně
+		- na <option> uvnitř selectu lze nastavit jen velmi omezenou sadu vlastností
+	-->
+
+
+
+
+	<!--
+		Stylování stavů formulářového pole
+		- :focus
+		- :valid, :invalid
+		- :placeholder-shown
+
+	-->
+
+
+
+
+	<hr>
+
+	<button type="submit" class="button">OK</button>
+
+</form>
+
+
+</body>
+</html>
