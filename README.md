@@ -1,8 +1,8 @@
 # Řešení příkladů a projektů
 
-V tomto repozitáře najdeš řešení příkladů a projektů z kurzu Staň se kóderkou. Repozitář obsahuje pouze řešení k příkladům určeným pro samostatnou práci, většinou nejsou obsaženy příklady, které slouží pro podporu výkladu a řeší se přímo ve videích.
+V tomto repozitáři najdeš řešení příkladů a projektů z kurzu Staň se kóderkou. Repozitář obsahuje pouze řešení k příkladům určeným pro samostatnou práci, většinou nejsou obsaženy příklady, které slouží pro podporu výkladu a řeší se přímo ve videích.
 
-Řešení příkladů a úkolů do repozitáře budeme postupně přidávat. Příklady z lekcí vždy následující týden. Projekty vždy až po termínu úkolu, abyste všechni měli možnost vyřešit si úkol sami.
+Řešení příkladů a úkolů do repozitáře budeme postupně přidávat. Příklady z lekcí vždy následující týden po zveřejnění videa. Projekty vždy až po termínu úkolu, abyste všichni měli možnost vyřešit si úkol sami a bez nápověd.
 
 
 ## Správnost řešení
