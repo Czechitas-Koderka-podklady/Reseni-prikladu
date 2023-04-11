@@ -1,0 +1,198 @@
+/* intuitivnější box-sizing pro všechny prvky na stránce */
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+
+/*
+	Poznámky:
+	- maximální šířka obsahu uvnitř sekcí je 1100px
+	- nadpisy jsou fontem Playfair Display, tučně
+	- veškerý další text na stránce fontem Lora
+
+	Barvy:
+	#f195b2		růžová - tlačítka a zvýraznění
+	#d2567d		tmavá růžová - hover/aktivní tlačítka
+	#3e606b		tmavá tyrkysová - na nadpisy
+	#242424		(skoro) černá - na běžný text
+	#f0f0f0		světle šedé pozadí prostřední sekce
+	#303339		tmavé pozadí patičky
+
+*/
+
+
+body {
+	margin: 0;
+	font-family: 'Lora', serif;
+	font-size: 18px;
+	line-height: 1.5;
+	color: #242424;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Playfair Display', serif;
+	line-height: 1.25;
+	color: #3e606b;
+}
+
+h1 {
+	font-size: 52px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+
+
+
+
+.hlavicka {
+	max-width: 1100px;
+	margin: 30px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	width: 170px;
+	height: auto;
+}
+
+.menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 1;
+	display: flex;
+}
+
+.menu li {
+	margin-left: 5px;
+}
+
+.menu a {
+	display: block;
+	padding: 10px 15px;
+	color: #242424;
+	text-decoration: none;
+	border-radius: 30px;
+}
+
+.menu a:hover {
+	background-color: #f195b2;
+	color: white;
+}
+
+
+
+.obsah-sekce {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 80px 0;
+}
+
+.nadpis-sekce {
+	margin-top: 0;
+	margin-bottom: 24px;
+}
+
+.sekce-seda {
+	background-color: #f0f0f0;
+}
+
+.hero {
+	background: #2E2a28 url(images/cupcake.jpg) no-repeat center/cover;
+	color: white;
+}
+
+.hero h1 {
+	margin-top: 0;
+	margin-right: 40%;
+	color: white;
+}
+
+.hero-text {
+	font-size: 24px;
+	font-style: italic;
+	margin-bottom: 0;
+	margin-right: 40%;
+}
+
+
+.dva-sloupce {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.sloupec {
+	flex: 0 0 calc((100% - 30px) / 2);
+}
+
+.foto {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.tlacitka {
+	margin-top: 30px;
+}
+
+.tlacitko {
+	display: inline-block;
+	padding: 15px 40px;
+
+	text-decoration: none;
+
+	border-radius: 30px;
+	background-color: #f195b2;
+	color: white;
+}
+
+.tlacitko:hover {
+	background-color: #d2567d;
+}
+
+
+.nabidka {
+	display: flex;
+	justify-content: space-between;
+}
+
+.produkt {
+	flex: 0 0 calc((100% - 90px) / 4);
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.produkt-obsah {
+	padding: 20px;
+}
+
+.produkt img {
+	width: 100%;
+	height: auto;
+	border-radius: 5px 5px 0 0;
+}
+
+.produkt h3 {
+	margin-top: 0;
+	font-size: 18px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.produkt p {
+	font-size: 15px;
+}
+
+
+
+.paticka {
+	padding: 30px 0;
+	background-color: #303339;
+	color: white;
+	text-align: center;
+}
