@@ -1,0 +1,56 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+*, :after, :before { box-sizing: border-box; }
+
+body {
+	font-family: sans-serif;
+}
+
+.sloupec {
+	padding: 20px;
+}
+
+.hlavicka	{ background-color: #2ecc71; }
+.obsah		{ background-color: #f1c40f; }
+.menu		{ background-color: #3498db; }
+.reklama1	{ background-color: #e74c3c; }
+.reklama2	{ background-color: #12cbC4; }
+.paticka	{ background-color: #9b59b6; }
+
+/* ---------------------------------------------------- */
+
+
+.kontejner {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 200px 1fr 250px;
+	grid-template-rows: 150px 250px auto 100px;
+	grid-template-areas:
+		"hlavicka hlavicka hlavicka"
+		"menu obsah reklama1"
+		"menu obsah reklama2"
+		"paticka paticka paticka";
+}
+
+.hlavicka {
+	grid-area: hlavicka;
+}
+
+.paticka {
+	grid-area: paticka;
+}
+
+.obsah {
+	grid-area: obsah;
+}
+
+.menu {
+	grid-area: menu;
+}
+
+.reklama1 {
+	grid-area: reklama1;
+}
+
+.reklama2 {
+	grid-area: reklama2;
+}

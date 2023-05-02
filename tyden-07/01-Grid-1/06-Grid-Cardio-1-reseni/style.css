@@ -1,0 +1,82 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+html { box-sizing: border-box;}
+*, ::after, ::before { box-sizing: inherit; }
+
+.polozka {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font: 18px/1 sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: black;
+	background-color: #b2bec3;
+}
+
+/* ---------------------------------------------------- */
+
+/* === ÚKOLY === */
+
+/*
+	Z kontejneru:
+	- udělej grid
+	- grid má 10 sloupců, sudé sloupce jsou dvakrát širší než liché
+	- grid má 10 řádků, každý řádek má výšku 50px
+	- grid má mezeru 20px mezi řádky a sloupci
+*/
+.kontejner {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr 2fr);
+	grid-template-rows: repeat(10, 60px);
+	gap: 20px;
+}
+
+
+/*
+	Položka 1: začíná ve sloupci 3 a končí ve sloupci 4.
+
+	POZOR:
+	Sloupec není vždy totéž co linie. Když položka v gridu začíná ve sloupci 3
+	a končí ve sloupci 4,	tak ve skutečnosti začíná/končí na linii 3 / 5.
+*/
+.polozka1 {
+	background-color: #55efc4;
+	grid-column: 3 / 5;
+}
+
+/* Položka 2 začíná ve sloupci 5 a sahá až do konce řádku. */
+.polozka2 {
+	background-color: #74b9ff;
+	grid-column: 5 / -1;
+}
+
+/* Položka 5 zabírá 2 sloupce a 2 řádky */
+.polozka5 {
+	background-color: #81ecec;
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+/* Položka 8 je vysoká 2 řádky */
+.polozka8 {
+	background-color: #ffeaa7;
+	grid-row: span 2;
+}
+
+/* Položka 15 zabírá celou šířku gridu */
+.polozka15 {
+	background-color: #a29bfe;
+	grid-column: 1 / -1;
+}
+
+/* Položka 18 zabírá 4 sloupce, ale končí v 8. sloupci (tj. na linii 9) */
+.polozka18 {
+	background-color: #fab1a0;
+	grid-column: span 4 / 9;
+}
+
+/* Položka 20 začíná na řádku 4 a zabírá celkem 3 řádky */
+.polozka20 {
+	background-color: #fd79a8;
+	grid-row: 4 / span 3;
+}
