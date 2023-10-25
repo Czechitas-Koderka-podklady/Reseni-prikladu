@@ -1,0 +1,340 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+html { box-sizing: border-box; }
+*, :after, :before { box-sizing: inherit; }
+
+
+/* -------------------------------------------------- */
+
+/*
+	pouzivame mobile first pristup
+	tj. vychozi styly mimo media query jsou pro nejmensi mobilni zarizeni (telefony)
+	s pribyvajici sirkou pridavame media query pro...
+
+	tablety:
+	@media (min-width: 480px) {
+	}
+
+	notebook/pc:
+	@media (min-width: 860px) {
+	}
+*/
+
+
+body {
+	margin: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.paticka {
+	text-align: center;
+	font-size: 14px;
+	color: silver;
+}
+
+.paticka a {
+	color: silver;
+}
+
+
+
+/*
+Použijeme mobile-first styl psaní CSS, kdy máme jako první vždy
+mobilní verzi prvku, pak media query pro tablet a počítač.
+Media query se v CSS opakují - vždy nastylujeme nějaký blok prvků (komponent),
+které spolu souvisí a uděláme k nim rovnou i tabletovou a počítačovou verzi.
+Pak pokračujeme další komponentou/částí stránky - opět nejdřív její mobilní
+verze a pak media query s verzemi pro tablet a počítač.
+*/
+
+
+/* ****************************************
+	Začneme hlavním rozložením jednotlivých obdélníčků
+	tj. jejich velikost a případné rozmístění vedle sebe/pod sebou
+	uvnitř hlavního flexboxu
+**************************************** */
+
+/*
+	Pro mobil nemusíme pro obalovací prvek .doporucujeme nastavit nic.
+	Recepty jsou pod sebou, což je i přirozený stav <div>ů, takže pro
+	mobil nemusíme žádný flexbox nastavovat. Nastavíme jen velikost
+	jednotlivých boxů s recepty.
+*/
+
+.hlavni-recept {
+	/*
+		Hlavní recept je na mobilu vysoký minimálně 200px, kdyby obsahoval
+		více textu, tak se roztáhne na větší výšku
+	*/
+	min-height: 200px;
+	border-bottom: 1px solid white;
+}
+.recept {
+	/* ostatní recepty jsou na mobilu minimálně 90px vysoké */
+	min-height: 90px;
+	border-bottom: 1px solid white;
+}
+
+
+/* tablet - hlavní rozložení*/
+@media (min-width: 480px) {
+
+	/*
+		Prvky .hlavni-recept a .recepty jsou na tabletu stále pod sebou,
+		takže jejich rodič stále nemusí být flexbox. nemcháme je být,
+		jsou pod sebou přirozeně ve výchozím stavu.
+	*/
+
+	.hlavni-recept {
+		/* zvětšíme trochu výšku hlavního receptu oproti mobilu */
+		min-height: 250px;
+	}
+
+	.recepty {
+		/* na tabletu už musíme zapnout flexbox, protože malé recepty už mají být vždy 2 a 2 vedle sebe */
+		display: flex;
+
+		/*
+			V boxu máme 4 recepty, ale mají být 2 vedle sebe ve 2 řádcích,
+			takže zapneme wrap, abychom mohli jednotlivé recepty uvnitř zalomit
+			na ty 2 řádky.
+		*/
+		flex-wrap: wrap;
+	}
+
+	.recept:nth-child(2n+1) {
+		/*
+			Vždy první recept v každé dvojici má na pravém okraji bílou linku,
+			která odděluje recepty od sebe.
+		*/
+		border-right: 1px solid white;
+	}
+
+	.recept {
+		/*
+			Recept je uvnitř flexboxu široký přesně 50%, tj vejdou se dva vedle sebe
+			a pak se musí flexbox zalomit na další řádek
+		*/
+		flex: 0 0 50%;
+
+		/* zvětšíme oproti mobilu minimální výšku receptu */
+		min-height: 150px;
+	}
+
+
+
+}
+
+/* počítač - hlavní rozložení */
+@media (min-width: 860px) {
+
+	/*
+		na počítači už jsou hlavní recept a menší recepty vedle sebe,
+		takže na rodičovský prvek zapneme flexbox
+	*/
+	.doporucujeme {
+		display: flex;
+	}
+
+	.hlavni-recept {
+		/* hlavní recept zabírá třetinu šířky */
+		flex: 1 0 33.33333%;
+
+		/* a tím pádem musíme přidat bílou oddělovací linku i na jeho pravý okraj */
+		border-right: 1px solid white;
+	}
+
+	.recepty {
+		/*
+			krabička s recepty (kde uvnitř jsou 2 a 2 vedle sebe už z tabletové verze)
+			zabírá zbytek stránky, tedy 2/3
+		*/
+		flex: 1 0 66.66666%;
+	}
+
+	.recept {
+		/* zvětšíme minimální výšku malého receptu */
+		min-height: 200px;
+	}
+}
+
+
+/*
+	Tím máme vyřešeno hlavní rozmístění obdélníčků na stránce.
+
+	Teď pojdmě vyřešit rozmístění textů uvnitř samotného čtverečku s receptem
+	(platí pro hlavní i pro menší recepty). Toto rozložení je stejné od mobilu
+	až po počítač, takže pomocí media query budeme měnit jen velikost odsazení
+	obsahu receptu od jeho krajů.
+*/
+
+
+/* umístění textu  */
+.hlavni-recept,
+.recept {
+	padding: 10px;
+	/*
+		Uvnitř receptu máme jeden řádek textu u horního kraje a název receptu u dolního kraje.
+		Uděláme tedy z receptu flexbox ve vertikálním směru (column).
+	*/
+	display: flex;
+	flex-direction: column;
+
+	/*
+		...a pomocí space-between odsuneme obsah k oběma okrajům (flexbox je column,
+		takže prvky se odstrčí od sebe svisle k hornímu a dolnímu okraji
+	*/
+	justify-content: space-between;
+}
+
+.recept-meta {
+	/*
+		Horní řádek textu obsahuje kategorii a počet komentářů, jeden údaj vpravo
+		a druhá vlevo. uděláme tedy z <div>u flexbox (tentokrát klasický horizontální)
+		a opět pomocí space-between odsuneme prvky od sebe na opačné konce flexboxu
+		- tj. jeden úplně vlevo a druhý úplně vpravo
+	*/
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/* pro tablet a pc zvětšíme pouze odsazení obsahu od okraje receptu */
+@media (min-width: 480px) {
+	.hlavni-recept,
+	.recept {
+		padding: 20px;
+	}
+}
+
+
+
+
+/*
+	Dále už není nic komplikovaného - pouze nastavujeme barvy a velikosti písma.
+	Pro tablet a počítač upravujeme velikost textu v nadpisu hlavního i menších receptů.
+*/
+.recept-nazev {
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+	font-weight: 800;
+	color: white;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.recept-meta {
+	font-size: 14px;
+	font-weight: 400;
+	color: white;
+}
+
+.hlavni-recept .recept-nazev {
+	font-size: 28px;
+}
+
+.recept .recept-nazev {
+	font-size: 18px;
+}
+
+/* tablet - větší nadpisy */
+@media (min-width: 480px) {
+	.hlavni-recept .recept-nazev {
+		font-size: 36px;
+	}
+
+	.recept .recept-nazev {
+		font-size: 22px;
+	}
+}
+
+/* počítač - ještě větší nadpisy */
+@media (min-width: 860px) {
+	.hlavni-recept .recept-nazev {
+		font-size: 48px;
+	}
+
+	.recept .recept-nazev {
+		font-size: 28px;
+	}
+}
+
+
+/* obrázky na pozadí jednotlivých receptů */
+
+.hlavni-recept,
+.recept {
+	/* zde nastavíme vlastnosti společné pro všechny recepty bez ohledu na tvar nebo velikost */
+
+	/* pozadí je vždy vycentrované v obou směrech uprostřed receptu */
+	background-position: center center;
+
+	/* pozadí se neopakuje */
+	background-repeat: no-repeat;
+
+	/* pozadí se roztáhne tak, aby se nedeformovalo, ale přitom pokrylo celou plochu receptu */
+	background-size: cover;
+}
+
+.hlavni-recept {
+	/*
+		Použijeme vícenásobná pozadí k tomu, abychom ztmavili obrázek na pozadí.
+		Vícenásobná pozadí se oddělují čárkou a vždy to, které je první,
+		je nejvíce nahoře a překrývá vrstvy pod ním. Takže máme obrázek
+		a nad ním je lineární gradient, který přechází z poloprůhledné černé
+		do stejné poloprůhledné černé - tj. dostaneme vrstvu vyplněnou poloprůhlednou
+		černou barvou, skrze kterou prosvítá obrázek pod ní => do černa ztmavený obrázek.
+	*/
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url('images/salat.jpg');
+}
+
+.hlavni-recept:hover {
+	/*
+		Při najetí myši nastavíme pozadí jen na obrázek bez ztmavení lineárním gradientem,
+		takže to vypadá, že se recept při najetí myši rozsvítí.
+	*/
+	background-image:
+		url('images/salat.jpg');
+}
+
+/* Pro ostatní recepty nastavíme to stejné, jen s jinými obrázky */
+
+.recept2 {
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url('images/chlebicek.jpg');
+}
+.recept2:hover {
+	background-image:
+		url('images/chlebicek.jpg');
+}
+
+.recept3 {
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url('images/tacos.jpg');
+}
+.recept3:hover {
+	background-image:
+		url('images/tacos.jpg');
+}
+
+.recept4 {
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url('images/cizrna.jpg');
+}
+.recept4:hover {
+	background-image:
+		url('images/cizrna.jpg');
+}
+
+.recept5 {
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url('images/burger.jpg');
+}
+.recept5:hover {
+	background-image:
+		url('images/burger.jpg');
+}
