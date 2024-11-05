@@ -1,0 +1,36 @@
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+body {
+	font: 16px/1.5 sans-serif;
+	padding: 2em;
+}
+
+/* ---------------------------- */
+
+.pes {
+	fill: silver;
+}
+
+.pes:hover {
+	fill: red;
+
+}
+
+
+
+.button-primary {
+	background-color: red;
+	color: white;
+
+}
+
+
+.listecek:hover .list {
+	fill: green;
+	opacity: 1;
+}
+
+.listecek:hover .stonek {
+	fill: brown;
+}

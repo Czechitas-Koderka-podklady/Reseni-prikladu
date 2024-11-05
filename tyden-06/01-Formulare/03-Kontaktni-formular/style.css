@@ -1,0 +1,49 @@
+/* intuitivnejsi box siying */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	margin: 20px;
+	font: 16px/1.5 sans-serif ;
+}
+
+/* ------------------------- */
+
+h1 {
+	color: dodgerblue;
+}
+
+form {
+	width: 400px;
+}
+
+.form-field,
+.form-checkbox {
+	margin-bottom: 15px;
+}
+
+.form-field label {
+	display: block;
+	color: grey;
+}
+
+.form-field input[type='text'],
+.form-field input[type='email'],
+.form-field input[type='tel'],
+.form-field textarea,
+.form-field select {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid silver;
+	border-radius: 4px;
+}
+
+button {
+	border: 0;
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: dodgerblue;
+	color: white;
+	border-radius: 4px;
+}

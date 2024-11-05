@@ -1,0 +1,11 @@
+/* intuitivnejsi box siying */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	margin: 20px;
+	font: 16px/1.5 sans-serif ;
+	margin-bottom: 150px;
+}
+
+/* ------------------------- */
