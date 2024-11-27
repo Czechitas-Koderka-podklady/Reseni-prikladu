@@ -1,0 +1,51 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+*, :after, :before { box-sizing: border-box; }
+
+body {
+	font-family: sans-serif;
+	background-color: #e5e5e5;
+}
+
+/* ---------------------------------------------------- */
+
+.galerie {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(5, minmax(150px, 250px));
+}
+
+figure {
+	margin: 0;
+	padding: 5px;
+	border-radius: 3px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	background-color: white;
+}
+
+figure img {
+	width: 100%;
+}
+
+figcaption {
+	text-align: center;
+}
+
+
+figure:nth-child(7n+1) {
+	transform: rotate(-3deg);
+}
+figure:nth-child(7n+2) {
+	transform: rotate(1deg);
+}
+figure:nth-child(7n+3) {
+	transform: rotate(-1deg);
+}
+figure:nth-child(7n+5) {
+	transform: rotate(3deg);
+}
+figure:nth-child(7n+6) {
+	transform: rotate(-2deg);
+}
+figure:nth-child(7n+7) {
+	transform: rotate(2deg);
+}

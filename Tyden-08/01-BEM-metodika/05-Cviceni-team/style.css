@@ -1,0 +1,67 @@
+/* intuitivnejší box model */
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+body {
+	font: 16px/1.5 sans-serif;
+}
+
+/* ------------------------------------------------ */
+
+
+
+.team {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+}
+
+.employee {
+	padding: 20px;
+}
+
+.employee__foto {
+	width: 100%;
+	height: auto;
+}
+
+.employee__name {
+	margin: 20px 0 10px 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.employee__title {
+	margin: 10px 0;
+	color: silver;
+	font-size: 14px;
+}
+
+.employee__description {
+	margin: 10px 0 20px;
+}
+
+
+.employee--highlight {
+	background-color: black;
+	color: white;
+}
+
+
+.social {
+	display: flex;
+}
+
+.social__link {
+	text-decoration: none;
+}
+
+.social__icon {
+	width: 1em;
+	height: 1em;
+	margin-right: 10px;
+}
+
+.employee--highlight .social__icon {
+	filter: invert(1);
+}

@@ -1,0 +1,91 @@
+/* intuitivnejsi box-sizing */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	font: 16px/1.5 sans-serif;
+	margin: 50px;
+}
+
+/*************************************************/
+
+.hlavni::after {
+	content: "";
+	display: block;
+	width: 200px;
+	height: 3px;
+	/* margin-top: 10px; */
+	margin-left: -50px;
+	background-image: linear-gradient(to right, magenta, cyan);
+}
+
+.prvni {
+	text-align: center;
+}
+
+.prvni::before,
+.prvni::after {
+	content: "";
+	display: block;
+	height: 15px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.prvni::before {
+	background-image: url(images/flourish-top.png);
+}
+
+.prvni::after {
+	background-image: url(images/flourish-bottom.png);
+}
+
+
+
+.druhy {
+	text-align: center;
+}
+
+.druhy::before,
+.druhy::after {
+	content: "";
+	display: inline-block;
+	width: 2em;
+	height: 0.8em;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.druhy::before {
+	background-image: url(images/swirl-left.png);
+	margin-right: 15px;
+}
+
+.druhy::after {
+	background-image: url(images/swirl-right.png);
+	margin-left: 15px;
+}
+
+
+
+.treti {
+	position: relative;
+}
+
+.treti::before {
+	content: "";
+	display: block;
+	width: 70px;
+	height: 70px;
+	background-image: linear-gradient(to top right, yellow, orange);
+
+	position: absolute;
+	top: -16px;
+	left: -25px;
+
+	transform: rotate(45deg);
+
+	z-index: -999;
+}

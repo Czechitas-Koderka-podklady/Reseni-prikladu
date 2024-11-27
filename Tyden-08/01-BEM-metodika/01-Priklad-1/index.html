@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BEM ukázky</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<h1>Ukázky použití BEM</h1>
+
+	<h2>Komponenta bez vnitřních elementů a modifikátorů</h2>
+	<!-- Např. tlačítko -->
+
+	<button class="button">Tlačítko</button>
+
+
+
+	<h2>Komponenta s modifikátorem</h2>
+	<!-- Např. tlačítko - primární, sekundární, velké -->
+	<!-- Nadefinujeme barvy jako proměnné -->
+
+	<button class="button button--primary">Primární</button>
+
+	<button class="button button--secondary">Sekundární</button>
+
+	<button class="button button--big">Velké</button>
+
+	<button class="button button--primary button--big">Primární</button>
+
+	<button class="button button--secondary button--big">Sekundární</button>
+
+
+
+
+	<h2>Komponenta s vnitřními elementy</h2>
+	<!-- Např. figure s obrázkem a popisem -->
+
+	<figure class="photo">
+		<img class="photo__image" src="foto.jpg" alt="Foto">
+		<figcaption class="photo__caption">Úžasná krajinka</figcaption>
+	</figure>
+
+
+
+
+
+	<h2>Komponenta s vnitřními elementy s modifikátorem</h2>
+	<!-- Obrázek ve figure má rámeček -->
+
+	<figure class="photo">
+		<img class="photo__image photo__image--border" src="foto.jpg" alt="Foto">
+		<figcaption class="photo__caption">Úžasná krajinka</figcaption>
+	</figure>
+
+
+
+	<figure class="photo photo--inverted">
+		<img class="photo__image" src="foto.jpg" alt="Foto">
+		<figcaption class="photo__caption">Úžasná krajinka</figcaption>
+	</figure>
+
+
+
+
+
+	<h2>Komponenta s vnitřními vnořenými elementy</h2>
+	<!-- V popisu obrázku je vložená ještě citace -->
+
+	<figure class="photo">
+		<img class="photo__image" src="foto.jpg" alt="Foto">
+		<figcaption class="photo__caption">
+			Autor obrazu řekl:
+			<blockquote class="photo__quote">Toto je úžasná krajinka.</blockquote>
+		</figcaption>
+	</figure>
+
+
+
+
+
+
+	<h2>Vnořené komponenty</h2>
+	<!-- galerie fotek s popisem, tlačítka koupit -->
+
+	<figure class="photo">
+		<img class="photo__image" src="foto.jpg" alt="Foto">
+		<figcaption class="photo__caption">
+			Úžasná krajinka
+			<button class="button button--primary">Koupit</button>
+		</figcaption>
+	</figure>
+
+
+	<h2>Komponenta v komponentě v komponentě</h2>
+
+	<div class="gallery">
+
+		<figure class="photo">
+			<img class="photo__image" src="foto.jpg" alt="Foto">
+			<figcaption class="photo__caption">
+				Úžasná krajinka
+				<button class="button button--primary">Koupit</button>
+			</figcaption>
+		</figure>
+
+		<figure class="photo">
+			<img class="photo__image" src="foto.jpg" alt="Foto">
+			<figcaption class="photo__caption">
+				Úžasná krajinka
+				<button class="button button--primary">Koupit</button>
+			</figcaption>
+		</figure>
+
+		<figure class="photo">
+			<img class="photo__image" src="foto.jpg" alt="Foto">
+			<figcaption class="photo__caption">
+				Úžasná krajinka
+				<button class="button button--primary">Koupit</button>
+			</figcaption>
+		</figure>
+
+
+
+	</div>
+
+</body>
+</html>

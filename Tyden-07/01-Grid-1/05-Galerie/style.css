@@ -1,0 +1,26 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+*, :after, :before { box-sizing: border-box; }
+
+
+/* ---------------------------------------------------- */
+
+
+.kontejner {
+    display: grid;
+    width: 100%;
+	grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 300px;
+    grid-gap: 1px;
+}
+
+.foto img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.foto:nth-child(5),
+.foto:nth-child(10)  {
+    grid-column: span 2;
+    grid-row: span 2;
+}

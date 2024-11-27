@@ -1,0 +1,51 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+*, :after, :before { box-sizing: border-box; }
+
+body {
+	font-family: sans-serif;
+}
+
+.sloupec {
+	padding: 20px;
+}
+
+.hlavicka	{ background-color: #2ecc71; }
+.hlavni		{ background-color: #f1c40f; }
+.levy		{ background-color: #3498db; }
+.pravy		{ background-color: #e74c3c; }
+.paticka	{ background-color: #9b59b6; }
+
+/* ---------------------------------------------------- */
+
+
+.kontejner {
+	display: grid;
+	grid-template-columns: [leva] 200px [obsah-start] auto [obsah-end] 250px [prava];
+	grid-template-rows: [hlavicka-start] 200px [hlavicka-end hlavni-start] auto [hlavni-end paticka-start] 100px [paticka-end];
+	grid-gap: 20px;
+}
+
+.hlavicka {
+	grid-row: hlavicka-start / hlavicka-end;
+	grid-column: leva / prava;
+}
+
+.paticka {
+	grid-row: paticka-start / paticka-end;
+	grid-column: leva / prava;
+}
+
+.hlavni {
+	grid-row: hlavni-start / hlavni-end;
+	grid-column: obsah-start / obsah-end;
+}
+
+.levy {
+	grid-row: hlavni-start / hlavni-end;
+	grid-column: leva / obsah-start;
+}
+
+.pravy {
+	grid-row: hlavni-start / hlavni-end;
+	grid-column: obsah-end / prava;
+}

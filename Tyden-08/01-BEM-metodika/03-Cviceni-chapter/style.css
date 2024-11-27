@@ -1,0 +1,53 @@
+/* intuitivnejší box model */
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+body {
+	font: 16px/1.5 sans-serif;
+}
+
+/* ------------------------------------------------ */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Georgia, sans-serif;
+}
+
+.chapter {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: 100vh;
+}
+
+.chapter__cover {
+	width: 100%;
+	height: 100%;
+	fit-content: cover;
+}
+
+.chapter__content {
+	padding: 30px;
+	display: grid;
+	place-content: center;
+}
+
+.chapter__number {
+	margin-bottom: 0;
+	font-size: 16px;
+	text-align: center;
+}
+
+.chapter__title {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 48px;
+	text-align: center;
+}
+
+.chapter__quote {
+	margin-top: 0;
+	font-size: 18px;
+	text-align: center;
+	color: #888;
+}

@@ -1,0 +1,56 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+*, :after, :before { box-sizing: border-box; }
+
+.kontejner {
+    padding: 10px;
+    border: 1px dashed red;
+    background-color: #ffffcc;
+}
+
+
+.kontejner > div {
+    font: 30px/1 sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kontejner > div:nth-child(8n+1) { background-color: #2ecc71;}
+.kontejner > div:nth-child(8n+2) { background-color: #f1c40f;}
+.kontejner > div:nth-child(8n+3) { background-color: #f368e0;}
+.kontejner > div:nth-child(8n+4) { background-color: #3498db;}
+.kontejner > div:nth-child(8n+5) { background-color: #e74c3c;}
+.kontejner > div:nth-child(8n+6) { background-color: #12cbC4;}s
+.kontejner > div:nth-child(8n+7) { background-color: #9b59b6;}
+.kontejner > div:nth-child(8n+8) { background-color: #e67e22;}
+
+
+/* ---------------------------------------------------- */
+
+
+/*
+Vyzkoušíme si:
+- grid-auto-rows
+- grid-auto-columns
+- posun položky na linii bez určení řady/sloupce (vznikají mezery)
+- grid-auto-flow
+  - row (standard)
+  - column
+  - dense (zabraňuje mezerám)
+- order
+*/
+
+
+.kontejner {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 100px;
+    grid-auto-flow: dense;
+}
+
+.kontejner div:nth-child(8) {
+    grid-column: 3 / span 2;
+}

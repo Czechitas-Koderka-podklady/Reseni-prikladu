@@ -1,0 +1,71 @@
+/* intuitivnejší box model */
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+body {
+	font: 16px/1.5 sans-serif;
+}
+
+/* ------------------------------------------------ */
+
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: grid;
+	place-content: center;
+	background-color: silver;
+}
+
+.card {
+	/*
+	nastavení maximální velikosti by tady normálně nebylo, protože
+	velikost kartičky by řídil třeba vnější kontejner, který tady
+	ale teď nemáme, takže omezím velikost, aby kartička nebyla
+	roztažená přes celou stránku
+	*/
+	max-width: 300px;
+}
+
+.card__image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.card__body {
+	padding: 20px;
+	background-color: white;
+}
+
+.card__title {
+	margin: 0 0 10px 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.card__content p {
+	margin: 10px 0 0 0;
+}
+
+
+.card__reactions {
+	margin-top: 20px;
+	display: flex;
+}
+
+.card__reaction {
+	margin-right: 20px;
+	padding-left: 1.5em;
+	background-size: 1em 1em;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.card__reaction--like {
+	background-image: url(images/heart.svg);
+}
+
+.card__reaction--comment {
+	background-image: url(images/comment.svg);
+}

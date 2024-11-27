@@ -1,0 +1,31 @@
+/* intuitivnejsi box-sizing */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	padding: 50px;
+	background-color: black;
+}
+
+.zavody {
+	position: relative;
+	width: 1000px;
+	height: 679px;
+	margin: 0 auto;
+	background: url(images/pozadi.jpg) no-repeat top left;
+	border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.raketka1,
+.raketka2,
+.raketka3 {
+	display: block;
+	position: absolute;
+	left: 5px;
+	width: 140px;
+	height: 83px;
+}
+
+.raketka1 { top: 150px; }
+.raketka2 { top: 330px; }
+.raketka3 { top: 510px; }
